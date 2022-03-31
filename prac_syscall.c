@@ -1,5 +1,9 @@
 #include "types.h"
+#include "x86.h"
 #include "defs.h"
+#include "param.h"
+#include "mmu.h"
+#include "proc.h"
 
 // Simple system call
 int
@@ -19,4 +23,17 @@ sys_my_syscall(void)
 	if (argstr(0, &str) < 0) return -1;
 
 	return my_syscall(str);
+}
+
+int
+get_ppid(void)
+{
+    return myproc()->parent->pid;
+}
+
+int
+sys_get_ppid(void)
+{
+    return get_ppid();
+
 }
