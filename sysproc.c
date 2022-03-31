@@ -21,6 +21,13 @@ sys_exit(void)
 }
 
 int
+sys_my_yield(void)
+{
+    yield();
+    return 0;
+}
+
+int
 sys_wait(void)
 {
   return wait();
