@@ -26,14 +26,8 @@ sys_my_syscall(void)
 }
 
 int
-get_ppid(void)
+sys_get_ppid(void)
 {
     return myproc()->parent->pid;
 }
 
-int
-sys_get_ppid(void)
-{
-    return get_ppid();
-
-}
